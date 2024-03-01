@@ -1,9 +1,10 @@
 # GPT
 
-# Install openai package 
-pip install openai
+  # Install package 
+  pip install openai
+  pip install tiktoken
 
-# Write your first code
+
 
 
 
