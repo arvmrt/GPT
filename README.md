@@ -1,8 +1,6 @@
-# GPT
+# OpenAI GPT
 
-  # Install package 
-  pip install openai
-  pip install tiktoken
+
 
 
 
