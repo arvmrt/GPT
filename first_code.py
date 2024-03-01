@@ -1,11 +1,17 @@
+import os
 from openai import OpenAI
+
+prompt = "Enter your question here"
+
 client = OpenAI(
-    os.environ.get("OPENAI_API_KEY")
+    os.environ.get("OPENAI_API_KEY", "<your OpenAI API key if not set as env var>")
 )
 
 chat_completion = client.chat.completions.create(
     model="gpt-3.5-turbo",
-    #response_format={ "type": "json_object" },  #Optional if you need output in JSON format
+    temperature=0,
+    max_tokens=1,
+    #response_format={ "type": "json_object" },
     messages=[
         {
             "role": "user",
@@ -14,10 +20,10 @@ chat_completion = client.chat.completions.create(
     ]
 )
 
-#Extract and Output only Answer
+#Extract only Answer from the Response
 generated_text = chat_completion.choices[0].message.content
 print(generated_text)
 
-#Output Full Response
+#Display Full Response
 generated_text = chat_completion
 print(generated_text)
