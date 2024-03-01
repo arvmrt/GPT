@@ -5,20 +5,20 @@ prompt = "Hi there! Thanks for using OpenAI GPT Model."
 
 # Setup a environment variable on Linux Server with name OPENAI_API_KEY and save the key in there. Make sure to run source command to enable the variable.
 client = OpenAI(
-    os.environ.get("OPENAI_API_KEY", "<your OpenAI API key if not set as env var>")
+    os.environ.get("OPENAI_API_KEY")
 )
 
 chat_completion = client.chat.completions.create(
-    model="gpt-3.5-turbo",
-    temperature=0,
-    max_tokens=1,
-    #response_format={ "type": "json_object" },  # Uncomment if you need output in JSON format.
+    model="gpt-3.5-turbo",    
     messages=[
         {
             "role": "user",
             "content": prompt,
         }
-    ]
+    ],
+    #temperature=0,                              # Optional
+    #max_tokens=1,                               # Optional
+    #response_format={ "type": "json_object" },  # Optional
 )
 
 #Extract only Answer from the Response
