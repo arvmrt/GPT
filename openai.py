@@ -1,7 +1,7 @@
 import os
 from openai import OpenAI
 
-prompt = "Enter your question here"
+prompt = "Hi there! Thanks for using OpenAI GPT Model."
 
 # Setup a environment variable on Linux Server with name OPENAI_API_KEY and save the key in there. Make sure to run source command to enable the variable.
 client = OpenAI(
