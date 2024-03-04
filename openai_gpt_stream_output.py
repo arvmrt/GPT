@@ -31,3 +31,4 @@ chat_completion = client.chat.completions.create(
 stream = chat_completion.choices[0].message.content
 for chunk in stream:
     print(chunk.choices[0].delta.content or "", end="")
+
