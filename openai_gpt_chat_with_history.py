@@ -8,10 +8,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Initilize model and it will automatically pass API key via environment variable OPENAI_API_KEY
 # Initialize OpenAI Chat Model
-chat = ChatOpenAI(
-    openai_api_key=OPENAI_API_KEY,
-    model='gpt-3.5-turbo'
-)
+chat = ChatOpenAI()
 
 # Create a list with some sample history messages. Note following format is must for it to work.
 prompt = [
