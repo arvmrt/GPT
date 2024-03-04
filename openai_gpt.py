@@ -10,7 +10,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 prompt = "Who is the first president of USA?."
 
 # Initialize Model
-chat = ChatOpenAI()
+client = OpenAI()
 
 # Send prompt question and get response from Model
 chat_completion = client.chat.completions.create(
