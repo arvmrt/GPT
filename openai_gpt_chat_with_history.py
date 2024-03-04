@@ -1,11 +1,20 @@
 import os
+from dotenv import load_dotenv
 from openai import OpenAI
 
+# Load OpenAI API Key from .env file
+load_dotenv()
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
 # Initilize model and it will automatically pass API key via environment variable OPENAI_API_KEY
-client = OpenAI()
+# Initialize OpenAI Chat Model
+chat = ChatOpenAI(
+    openai_api_key=OPENAI_API_KEY,
+    model='gpt-3.5-turbo'
+)
 
 # Create a list with some sample history messages. Note following format is must for it to work.
-example_messages = [
+prompt = [
     {
         "role": "user",
         "content": "Who is the first president of USA?",
@@ -28,13 +37,13 @@ example_messages = [
     },    
 ]
 
-# Create the Model
+# Send prompt question and get response from Model
 chat_completion = client.chat.completions.create(
     model="gpt-3.5-turbo",
     #temperature=0,                              # Optional
     #max_tokens=1,                               # Optional
     #response_format={ "type": "json_object" },  # Optional
-    messages=example_messages
+    messages=prompt
 )
 
 #Extract only Answer from the Response
