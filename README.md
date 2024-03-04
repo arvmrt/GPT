@@ -20,6 +20,7 @@ source myenv/bin/activate
 ```
 pip install openai
 pip install tiktoken
+pip install python-dotenv
 ```
 
 #### Create a ".env" file under the project directory and add the following API KEYS:
