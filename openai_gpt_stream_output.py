@@ -1,18 +1,22 @@
 import os
+from dotenv import load_dotenv
 from openai import OpenAI
 
+# Load OpenAI API Key from .env file
+load_dotenv()
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Define your followup question
 prompt = "Who is the first president of USA?."
 
-'''
-Setup a environment variable on Linux Server with name OPENAI_API_KEY and save the key in there. Make sure to run source command to enable the variable.
-# vi .bashrc
-export OPENAI_API_KEY="<Input your API Key Here>"  #Add this line at end of file and save file.
-# source .bashrc
-'''
 # Initilize model and it will automatically pass API key via environment variable OPENAI_API_KEY
-client = OpenAI()
+# Initialize OpenAI Chat Model
+chat = ChatOpenAI(
+    openai_api_key=OPENAI_API_KEY,
+    model='gpt-3.5-turbo'
+)
 
-# Create the Model
+# Send prompt question and get response from Model
 chat_completion = client.chat.completions.create(
     model="gpt-3.5-turbo",
     stream=True,
