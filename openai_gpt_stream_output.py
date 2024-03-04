@@ -14,7 +14,7 @@ prompt = "Who is the first president of USA?."
 client = OpenAI()
 
 # Send prompt question and get response from Model
-chat_completion = client.chat.completions.create(
+stream = client.chat.completions.create(
     model="gpt-3.5-turbo",
     stream=True,
     messages=[
@@ -29,7 +29,7 @@ chat_completion = client.chat.completions.create(
 )
 
 #Display Response
-stream = chat_completion.choices[0].message.content
+
 for chunk in stream:
     print(chunk.choices[0].delta.content or "", end="")
 
