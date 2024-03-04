@@ -11,7 +11,7 @@ prompt = "Who is the first president of USA?."
 
 # Initilize model and it will automatically pass API key via environment variable OPENAI_API_KEY
 # Initialize OpenAI Chat Model
-chat = ChatOpenAI()
+client = OpenAI()
 
 # Send prompt question and get response from Model
 chat_completion = client.chat.completions.create(
