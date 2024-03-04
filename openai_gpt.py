@@ -10,7 +10,10 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 prompt = "Who is the first president of USA?."
 
 # Initialize Model
-client = OpenAI()
+chat = ChatOpenAI(
+    openai_api_key=OPENAI_API_KEY,
+    model='gpt-3.5-turbo'
+)
 
 # Send prompt question and get response from Model
 chat_completion = client.chat.completions.create(
