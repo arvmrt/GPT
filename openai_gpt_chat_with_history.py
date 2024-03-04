@@ -6,9 +6,8 @@ from openai import OpenAI
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-# Initilize model and it will automatically pass API key via environment variable OPENAI_API_KEY
 # Initialize OpenAI Chat Model
-chat = ChatOpenAI()
+client = OpenAI()
 
 # Create a list with some sample history messages. Note following format is must for it to work.
 prompt = [
@@ -47,7 +46,7 @@ chat_completion = client.chat.completions.create(
 generated_text = chat_completion.choices[0].message.content
 print(generated_text)
 
-print("-----------------------------------------------------------")
+print("\n-----------------------------------------------------------\n")
 
 #Display Full Response
 generated_text = chat_completion
