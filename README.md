@@ -1,7 +1,7 @@
 ## OpenAI GPT
 
 
-## Getting Started
+### Getting Started
 
 #### Prerequisites
 ```
